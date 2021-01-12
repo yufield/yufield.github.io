@@ -1,16 +1,18 @@
 <template>
   <a-layout id="components-layout-demo-fixed">
     <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
-      <div class="logo" />
+      <router-link :to="{name:'Home'}">
+        <div class="logo"/>
+      </router-link>
       <a-menu
-        theme="dark"
-        mode="horizontal"
-        v-model:selectedKeys="selectedKeys"
-        :style="{ lineHeight: '64px' }"
+          theme="dark"
+          mode="horizontal"
+          v-model:selectedKeys="selectedKeys"
+          :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1"> nav 1 </a-menu-item>
-        <a-menu-item key="2"> nav 2 </a-menu-item>
-        <a-menu-item key="3"> nav 3 </a-menu-item>
+        <a-menu-item key="1"> nav 1</a-menu-item>
+        <a-menu-item key="2"> nav 2</a-menu-item>
+        <a-menu-item key="3"> nav 3</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content :style="{ padding: '0 50px', marginTop: '64px' }">
@@ -20,12 +22,7 @@
         <a-breadcrumb-item>App</a-breadcrumb-item>
       </a-breadcrumb>
       <div :style="{ background: '#fff', padding: '24px', minHeight: '380px' }">
-        <div v-for="issue in issues" :key="issue.id">
-          <p>
-            {{ issue.title }}
-          </p>
-          <a-divider />
-        </div>
+        <router-view></router-view>
       </div>
     </a-layout-content>
     <a-layout-footer :style="{ textAlign: 'center' }">
@@ -33,26 +30,17 @@
     </a-layout-footer>
   </a-layout>
 </template>
-<script>
-import axios from "axios";
+<script lang="ts">
 export default {
+  name: "App",
   data() {
     return {
       selectedKeys: ["2"],
-      issues: [],
     };
   },
   created() {
-    this.getIssues();
   },
-  methods: {
-    async getIssues() {
-      let { data } = await axios.get(
-        "https://api.github.com/repos/yufield/yufield.github.io/issues"
-      );
-      this.issues.push(...data);
-    },
-  },
+  methods: {},
 };
 </script>
 <style>
