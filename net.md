@@ -164,8 +164,6 @@ Server: Apache
 <meta http-equiv="refresh" content="0;url=http://www.baidu.com/">
 </html>
 ```
-#### 4.3 HTTPS
-默认443端口
 ### 5.渲染
 
 #### 5.1 浏览器
