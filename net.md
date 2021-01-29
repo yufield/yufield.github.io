@@ -175,16 +175,13 @@ Server: Apache
 |IE|Trident|
 |safari|webkit|
 
-#### 5.2 解析dom树
+解析dom树
 
-#### 5.3 解析css
+解析css
 
-#### 5.3 计算并绘制
+计算并绘制
 
-#### 5.4 reflow(回流)
+布局变化 reflow(回流)
 
-布局变化
+颜色变化 repaint(重绘)
 
-#### 5.5 repaint(重绘)
-
-颜色变化
